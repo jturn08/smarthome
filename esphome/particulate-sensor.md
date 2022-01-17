@@ -1,7 +1,7 @@
 # ESPHome + IKEA VINDRIKTNING Particulate sensor
 This guide explains how to modify a low cost IKEA VINDRIKTNING particulate (air quality) sensor into a Home Assistant smart sensor and Bluetooth Low Energy (BLE) sensor scanner by adding a low cost ($5 USD) [ESP32](https://en.wikipedia.org/wiki/ESP32) microcontroller and running [ESPHome](https://esphome.io) software.
 
-![ESPHome + IKEA VINDRIKTNING air quality sensor ](images/img1.jpg){:height="40%"}
+![ESPHome + IKEA VINDRIKTNING air quality sensor ](images/img1.jpg)
 
 ## Overview
 The ESPHome + IKEA VINDRIKTNING device can perform 2 functions in a smarthome:
@@ -17,7 +17,7 @@ Particulate Matter (PM) are microscopic particles that are in the air and is a h
 With automations, Home Assistant can automatically respond and trigger actions based on sensor events. For example, turn on lights automatically at sunset. With motion sensors, automations can trigger turning on lights automatically when there's motion and turn lights off after no motino is detected for a set period of time.
 
 ## IKEA VINDRIKTNING air quality monitor
-![IKEA VINDRIKTNING air quality sensor](images/img4.jpg){:height="30%"}
+![IKEA VINDRIKTNING air quality sensor](images/img4.jpg)
 
 IKEA VINDRIKTNING device measures air quality with its built-in PM1006 particulate matter sensor that measures fine particulate matter (PM2.5). It's designed as a small, unassuming white box that blends into the background in a home and is powered by a USB-C cable and 5V 2A wall adapter. It contains no built-in connectivity or smarthome functionality.
 
