@@ -1,0 +1,55 @@
+esphome:
+  name: esp-ikea
+
+esp32:
+  board: wemos_d1_mini32
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+  level: error
+  baud_rate: 0
+
+# Enable Home Assistant API
+api:
+
+ota:
+  password: "e84dbfb7a533e1eb2b5aa2c4f37e15d5"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "ESP-IKEA Fallback Hotspot"
+    password: "WXtF9QwWdZJS"
+
+captive_portal:
+
+uart:
+  rx_pin: GPIO16 # ESP32 UART RX2 pin
+  baud_rate: 9600
+
+esp32_ble_tracker:  #enable ESP32 to track Bluetooth Low Energy devices
+
+sensor:
+  - platform: pm1006 # sensor in IKEA VINDRIKTNING 
+    pm_2_5:
+      name: "PM1 Particulate Matter <2.5µm"
+
+# Auto daily reset
+time:
+  - platform: homeassistant
+    on_time:
+      - seconds: 0
+        minutes: 0
+        hours: 4
+        days_of_week: MON-SUN
+        then:
+           - switch.toggle: restart_switch
+switch:
+  - platform: restart
+    name: "ESP-IKEA restart"
+    id: restart_switch
