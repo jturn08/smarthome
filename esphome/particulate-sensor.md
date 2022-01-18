@@ -1,24 +1,30 @@
-# ESPHome + IKEA VINDRIKTNING Particulate sensor
-This guide explains how to modify a low cost ($13 USD) [IKEA VINDRIKTNING](https://www.ikea.com/us/en/p/vindriktning-air-quality-sensor-60515911/) particulate (air quality) sensor into a [Home Assistant](https://www.home-assistant.io/) smart sensor and Bluetooth Low Energy (BLE) sensor scanner by adding a low cost ($5 USD) [ESP32](https://en.wikipedia.org/wiki/ESP32) microcontroller and running [ESPHome](https://esphome.io) software.
+# Home Assistant air quality sensor with IKEA VINDRIKTNING and ESPHome
+This guide explains how to modify a low cost ($13 USD) [IKEA VINDRIKTNING](https://www.ikea.com/us/en/p/vindriktning-air-quality-sensor-60515911/) particulate (air quality) sensor into a [Home Assistant](https://www.home-assistant.io/) smart sensor and Bluetooth Low Energy (BLE) sensor gateway by adding a low cost ($5 USD) [ESP32](https://en.wikipedia.org/wiki/ESP32) microcontroller and running [ESPHome](https://esphome.io) software.
 
 ![ESPHome + IKEA VINDRIKTNING air quality sensor ](images/img1.jpg)
 
 ## Overview
-ESPHome + IKEA VINDRIKTNING device can perform 2 functions in a smarthome:
+ESPHome + IKEA VINDRIKTNING device can perform a few functions in a smarthome:
 1. View particulate air quality measurements in Home Assistant
-2. Scan for events from Bluetooth Low Energy (BLE) motion sensor, thermometer, and other sensors. Events from sensors can then be used in Home Assistant automations.
+2. Act as a Bluetooth Low Energy (BLE) sensor gateway by detecting events from Bluetooth motion sensor, thermometer, or other sensors and transmitting them to Home Assistant over Wi-Fi network.
+3. Home Assistant automations can trigger actions based on detected events.
 
 [ESPHome](https://esphome.io) software enables connecting sensors to Home Assistant using microcontrollers like ESP8622 and ESP32.
+
+**Prerequisites**
+- [Home Assistant](https://www.home-assistant.io/) already installed on Raspberry Pi, single board computer or PC. Check [Setup Home Assistant on a thin client](.../home-assistant/hassio-on-thin-client.md) guide as an example.
 
 **Hardware required**
 - [IKEA VINDRIKTNING](https://www.ikea.com/us/en/p/vindriktning-air-quality-sensor-60515911/) air quality sensor
 - WEMOS D1 MINI32 [ESP32](https://en.wikipedia.org/wiki/ESP32) microcontroller
 
 **Software required**
-- [Home Assistant](https://www.home-assistant.io[Home Assistant](https://www.home-assistant.io/) [ESPHome](https://esphome.io)
+- [Home Assistant](https://www.home-assistant.io/)
+- [ESPHome](https://esphome.io)
+- [ESPHome Flasher](https://github.com/esphome/esphome-flasher)
 
 **Tools required**
-- small philips screwdriver
+- small philips head screwdriver
 - Soldering gun + solder
 - Electrical wire
 - Wire strippers
@@ -27,7 +33,11 @@ ESPHome + IKEA VINDRIKTNING device can perform 2 functions in a smarthome:
 Particulate Matter (PM) are microscopic particles that are in the air and is a harmful form of air pollution that can cause health problems like heart attacks and respiratory disease. The level of airborne particulate matter can change based on weather (stagnant air) or wildfires, so measuring your home air quality can provide insight on when one needs to be cautious outdoors.
 
 ### Home Assistant automations with Bluetooth LE sensors
-With automations, Home Assistant can automatically respond and trigger actions based on sensor events. For example, turn on lights automatically at sunset. With motion sensors, automations can trigger turning on lights automatically when there's motion and turn lights off after no motino is detected for a set period of time. With ESP32 microcontroller's built-in Bluetooth, you don't need Bluetooth on the PC or device Home Assistant is installed on.
+With automations, Home Assistant can automatically respond and trigger actions based on sensor events. For example, turn on lights automatically at sunset. With motion sensors, automations can trigger turning on lights automatically when there's motion and turn lights off after no motion is detected for a set period of time.
+
+### Home Assistant Bluetooth LE sensor gateway
+The ESP32 microcontroller can be configured to act as a Bluetooth sensor gateway, detecting broadcasts from Bluetooth Low Energy sensors and transmitting the events to Home Assistant over Wi-Fi network. With ESP32 microcontroller's built-in Bluetooth and Wi-Fi connectivity, you don't need Bluetooth on the PC or device Home Assistant is installed on.
+Bluetooth Low Energy sensors broadcasts data on a periodic basis. To prolong the sensor battery life, the ESP32 microcontroller doesn't "pair" or maintain active connection with each sensor.
 
 ### IKEA VINDRIKTNING air quality sensor
 ![IKEA VINDRIKTNING air quality sensor](images/img4.jpg)
@@ -95,7 +105,7 @@ This step configures your ESP32 microcontroller to connect to your Wi-Fi network
       name: "ESP-IKEA restart"
       id: restart_switch
   ```
-8. Select "Save", then select "Install". Choose your preferred install method. "Manual download" to be the easiest method for the initial flashing. "Wireless install" is easiest flash option after ESP32 device is connected to your network
+8. Select "Save", then select "Install". Choose your preferred install method. "Manual download" is the easiest method for the initial flashing. "Wireless install" is easiest flash option after ESP32 device is connected to your network
   - If using "Manual download", then download the compiled program (*.bin file) from ESPHome Dashboard, connect ESP32 device to your PC using USB cable, and then use [ESPHome Flasher](https://github.com/esphome/esphome-flasher) software to flash *.bin program to your ESP32 device.
 9. Verify ESPHome Dashboard displays your ESP32 device as green "Online", which indicates your ESP32 microcontroller successfully connected to your home network. After ESPHome Dashboard displays your ESP32 device as online, you can move on to the next section.
 
