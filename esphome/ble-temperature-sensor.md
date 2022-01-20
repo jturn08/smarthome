@@ -9,7 +9,7 @@ If some rooms of your home feels warmer or colder than other rooms, then it migh
 ![Home Assistant dashboard with temperature history](images/temp-history.jpg)
 
 **Prerequisites**
-- [Home Assistant](https://www.home-assistant.io/) already installed on Raspberry Pi, single board computer or PC. Check [Setup Home Assistant on a thin client](.../home-assistant/hassio-on-thin-client.md) guide as an example.
+- [Home Assistant](https://www.home-assistant.io/) already installed on Raspberry Pi, single board computer or PC. Check [Setup Home Assistant on a thin client](.../home-assistant/hassio-thin-client-setup.md) guide as an example.
 
 **Hardware required**
 - [ESP32](https://en.wikipedia.org/wiki/ESP32) microcontroller
