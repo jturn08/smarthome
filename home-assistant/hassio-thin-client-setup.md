@@ -1,12 +1,11 @@
-# Setup Home Assistant on a thin client
+# Setup Home Assistant on a thin client internal SSD
+This guide illustrates how to use a live session from an Xubuntu USB drive running directly on the thin client to install Home Assistant Operating System on the thin client.  
 
 ## Overview
-A used thin client PC is a great low cost alternative to Raspberry Pi or Home Assistant Blue devices for running [Home Assistant](https://www.home-assistant.io/).
-
-This guide illustrates how to use a live session from an Xubuntu USB drive running directly on the thin client to install Home Assistant Operating System on the thin client.
+A used thin client PC is a low cost alternative to a Raspberry Pi or a Home Assistant Blue devices for running [Home Assistant](https://www.home-assistant.io/). With a low power x86 64-bit processor and upgradeable RAM and SSD in a small case, it's a good choice option for software that runs 24x7 like Home Assistant. With internal mSATA or M.2 SATA SSD drive, installation requires a few more steps as described below.
 
 **Hardware required**
-- Thin client or PC with 32GB or larger internal SSD drive that Home Assistant will be installed on
+- Thin client with 32GB or larger internal SSD drive that Home Assistant will be installed on
 - 4GB or larger USB stick/flash drive for Xubuntu OS image
 - 4GB or larger USB stick/flash drive for Home Assistant OS image
 
@@ -14,30 +13,34 @@ This guide illustrates how to use a live session from an Xubuntu USB drive runni
 - Xubuntu OS ([free download at xubuntu.org](https://xubuntu.org/download/))
 - balenaEtcher ([free download at balena.io](https://www.balena.io/etcher/)) for creating a bootable Xubuntu OS USB drive
 
+### Home Assistant Container vs Home Assistant OS
+**Home Assistant Operating System** is the recommended installation method. It includes a mimimal Operating System optimized to power Home Assistant. It comes with Supervisor to manage Home Assistant Core, Add-ons, and backups support.  
+**Home Assistant Container** is a standalone container-based (e.g. Docker) installation method of Home Assistant Core. This is a good choice if you're using only Home Assistant Core functionality, but this installation method doesn't support popular Add-Ons like [ESPHome](https://esphome.io).  
+You'll need a dedicated PC or device to run Home Assistant OS, unlike Home Assistant Container which could be installed on a PC along side other containerized apps. A thin client is a good choice for a PC to run Home Assistant OS as explained in the next section.
+
 ### Thin client explained
-Thin clients are low power PCs originally designed for office remote desktop use. Used models from corporate leases can be found in good condition on eBay for $80 to $200. Choose a model 3 to 8 years old with dual or quad core x86 64-bit CPUs, upgradeable RAM, upgradeable storage.
+Thin clients are low power PCs originally designed for office remote desktop use. Used models from corporate leases can be found in good condition on eBay for $50 to $200. Choose a model 3 to 8 years old with dual or quad core x86 64-bit processor, upgradeable RAM, and upgradeable storage.
 
 Benefits of running [Home Assistant](https://www.home-assistant.io/) on a used thin client are:
 - Low cost ($50 or less for older models)
-- Faster processor
+- Faster x86 64-bit processor 
 - Upgradeable RAM and SSD storage
 - Low power consumption (10W) vs full desktop PC (200W)
 - Silent (fanless)
 - Smaller size than full desktop PC (typically the size of a large WiFi router)
 - Has internal Mini PCIe or M.2 expansion slots for adding [Coral AI](https://coral.ai/) accelerator cards useful for running [Frigate NVR](https://frigate.video/)
 
-As of 2022, a good option is a used Dell Wyse 5060 thin client with an upgraded SATA SSD.
+As of 2022, a good option is a used HP t620 or Dell Wyse 5060 thin client with an upgraded SATA SSD.
 
-|                   | Dell Wyse 5060                                 | Home Assistant Blue                     |
-| ----------------- | ---------------------------------------------- | --------------------------------------- |
-| Processor         | AMD G-Series GX-424CC (2.40 GHz, Quad core)    | 6-Core Amlogic S922X Processor (ARM v8) |
-| RAM               | 4 GB or 8 GB DDR3 (upgradeable)                | 4 GB DDR4                               |
-| Storage           | 16 GB, 32 GB, or 64 GB SATA SSD  (upgradeable) | 128 GB eMMC                             |
-| Network           | 1x Realtek Gigabit Ethernet                    | 1x Gigabit Ethernet                     |
-| Expansion         | 2x USB 3.1 + 4 USB 2.0 + M.2 2230 E key        | 4 USB 3.0                               |
-| Power consumption | 13W idle, 17W running                          | 2W idle, 6W running                     |
-| Cost              | $50-$100 USD                                        | $146 USD                                |
-
+|                   | Dell Wyse 5060 thin client                    | HP t620 thin client                         | Home Assistant Blue                     |
+| ----------------- | --------------------------------------------- | ------------------------------------------- | --------------------------------------- |
+| Processor         | AMD G-Series GX-424CC (2.40 GHz, Quad core)   | AMD GX-415GA (1.5 GHz, Dual core)           | 6-Core Amlogic S922X Processor (ARM v8) |
+| RAM               | 4 GB / 8 GB DDR3 (upgradeable)                | 2GB / 4 GB DDR3(upgradeable)                | 4 GB DDR4                               |
+| Storage           | 16 GB / 32 GB / 64 GB SATA SSD  (upgradeable) | 16 GB / 32 GB / 64 GB mSATA or M.2 SATA SSD | 128 GB eMMC                             |
+| Network           | 1x  Gigabit Ethernet                          | 1x  Gigabit Ethernet                        | 1x Gigabit Ethernet                     |
+| Expansion         | 2x USB 3.1 + 4 USB 2.0 + M.2 2230 E key       | 2x USB 3.0 + 6 USB 2.0 + Mini PCIe slot     | 4 USB 3.0                               |
+| Power consumption | 13W idle, 17W running                         | 8W idle, 11W running                        | 2W idle, 6W running                     |
+| Cost              | $50-$100 USD                                  | $30-$50                                     | $146 USD                                |
 
 ### SSD types explained: SATA vs mSATA vs M.2 (NGFF) vs NMVe 
 As SSD technologies improved, SSD drives used different connectors. Depending on the model, thin client may use an internal SSD drive with SATA, mSATA or M.2 (NGFF) SATA interface. If upgrading the internal SSD drive in a thin client, double check you're buying a compatible new SSD. **A new M.2 NMVe 2280 SSD will not work in most older thin client devices.**
@@ -111,4 +114,5 @@ If you are already running Home Assistant OS or Supervised on a device, then you
 3. Home Assistant Operating System will install, and after a few moments, you'll be able to reach Home Assistant on http://homeassistant.local:8123. 
 
 ## Conclusion
-Congratulations on successfully installing Home Assistant OS on a thin client. You can follow [Onboarding Home Assistant guide](https://www.home-assistant.io/getting-started/onboarding/) to continue setup. If you are migrating from another device, you can restore from a `.tar` backup file and have all your configuration and settings restored in seconds.
+Congratulations on successfully installing Home Assistant OS on a thin client!  
+You can follow [Onboarding Home Assistant guide](https://www.home-assistant.io/getting-started/onboarding/) to continue setup. If you are migrating from another device, you can restore from a `.tar` backup file and have all your configuration and settings restored in seconds.

@@ -1,8 +1,8 @@
 # smarthome
 Build a smarthome with the guides below using [Home Assistant](https://www.home-assistant.io/), [ESPHome](https://esphome.io), and Bluetooth sensors like temperature, motion, air quality.
 
-## Setup Home Assistant on a thin client
-[Home Assistant on a thin client](home-assistant/hassio-thin-client-setup.md) explains how to setup and run Home Assistant on low power & low cost ($50 or less) x86 thin client PCs as an alternative to a Raspberry Pi.
+## Setup Home Assistant on a thin client internal SSD
+[Home Assistant on a thin client](home-assistant/hassio-thin-client-setup.md) explains how to setup and run Home Assistant on low power & low cost ($50 or less) thin client as an alternative to a Raspberry Pi or Home Assistant Blue. Guide explains how to use a live session from an Xubuntu USB drive running directly on the thin client to install Home Assistant Operating System.
 
 ## Home Assistant room temperature and humidity with Bluetooth temperature sensor and ESPHome
 [Home Assistant room temperature and humidity with Bluetooth temperature sensor and ESPHome guide](esphome/particulate-sensor.md) explains how to integrate room temperature and humidity measurements and logging in Home Assistant using a low cost Bluetooth Low Energy (BLE) thermometer and ESP32 microcontroller running ESPHome software.  
