@@ -1,5 +1,7 @@
 # Cord-cutting with long range attic TV antenna + HDHomeRun network TV tuner
-This guide explains how to "cut-the-cord" and improve local TV channel reception using a long range TV antenna in the attic and enable watching live TV on a tablet or smartphone using a HDHomeRun network TV tuner, all with no monthly subscription fees.
+This guide explains how to "cut-the-cord" and improve local TV channel reception using a long range TV antenna mounted in the attic and enable watching live TV on a tablet or smartphone using a HDHomeRun network TV tuner, all with no monthly subscription fees.
+
+![Attic TV antenna](images/antenna2.jpg)
 
 ## Overview
 Cutting-the-cord on cable/satellite TV can save money every month, but that doesn't mean having to put up with bad TV signals that periodically cuts out, or having to physically adjust the placement of a TV antenna depending on which channel you're watching. Installing a long range TV antenna in the attic can improve TV channel reception to completely eliminate TV signals cutting out. Even with a TV antenna, you can still watch live TV on a smartphone or tablet with no monthly subscription fee using a HDHomeRun network TV tuner.  
@@ -38,6 +40,7 @@ You can distribute antenna TV signal throughout your home using existing in-wall
 
 ### HDHomeRun network TV tuner (Recommended)
 With a HDHomeRun network TV tuner device, one can watch TV from a smart TV, smartphone, tablet, or computer with no subscription fees. HDHomeRun devices comes in multiple versions with 2 or 4 tuners.  
+![HDHomeRun device](images/hdhomerun-device.jpg)  
 The HDHomeRun device connects to your TV antenna and to your home network with an ethernet cable, and you can watch TV on using HDHomeRun app on a TV or mobile device connected to your home network.  
 
 Screenshot from HDHomeRun Android app running on my smartphone with TV listings
