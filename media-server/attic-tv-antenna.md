@@ -1,5 +1,5 @@
 # Cord-cutting with long range attic TV antenna + HDHomeRun network TV tuner
-This guide explains how to "cut-the-cord" and improve local TV channel reception using a long range TV antenna mounted in the attic and enable watching live TV on a tablet or smartphone using a HDHomeRun network TV tuner, all with no monthly subscription fees.
+This guide explains how to "cut-the-cord", stop paying subscription fees to watch live TV, get great local TV reception using a long range TV antenna mounted in the attic, and watch live TV on a tablet or smartphone using a HDHomeRun network TV tuner.
 
 ![Attic TV antenna](images/antenna2.jpg)
 
@@ -46,5 +46,5 @@ The HDHomeRun device connects to your TV antenna and to your home network with a
 Screenshot from HDHomeRun Android app running on my smartphone with TV listings
 ![HDHomeRun app screenshot](images/hdhomerun.jpg)
 
-### Re-use in-wall coaxial wiring (Recommended)
+### Re-use in-wall coaxial wiring
 If you have "cut the cord" (canceled cable/satellite TV service), then you can re-use your home's existing in-wall coaxial wiring to connect your main antenna to the TV in every room. First, locate the service box that has the coaxial cable to each room. Next, route the antenna cable to this service box, and connect your antenna and coaxial cable to each room to a splitter or distribution amplifier. A distribution amplifier may be needed to maintain signal strength if the TV antenna signal is split to multiple rooms.  

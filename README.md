@@ -1,7 +1,9 @@
 # smarthome
+
+## Home Assistant  
 Build a smarthome with the guides below using [Home Assistant](https://www.home-assistant.io/), [ESPHome](https://esphome.io), and Bluetooth sensors like temperature, motion, air quality.
 
-## Setup Home Assistant on a thin client internal SSD
+### Setup Home Assistant on a thin client internal SSD
 [Home Assistant on a thin client](home-assistant/hassio-thin-client-setup.md) explains how to setup and run Home Assistant on low power & low cost ($50 or less) thin client as an alternative to a Raspberry Pi or Home Assistant Blue. Guide explains how to use a live session from an Xubuntu USB drive running directly on the thin client to install Home Assistant Operating System.
 
 ## Home Assistant room temperature and humidity with Bluetooth temperature sensor and ESPHome
@@ -21,5 +23,11 @@ Coming soon.
 ## Visualizing Home Assistant sensor data history in Grafana
 Coming soon.
 
-## Cord-cutting with long range attic TV antenna + HDHomeRun network TV tuner
-[Cord-cutting with long range attic TV antenna + HDHomeRun network TV tuner guide](media-server/attic-tv-antenna.md) explains how to improve TV antenna reception using a long range TV antenna in the attic and enable watching live TV on a tablet or smartphone using a HDHomeRun network TV tuner.
+## Media server   
+Build a home network file server, watch live TV from any app with 
+
+### Setup home file and media server OpenMediaVault on a Raspberry Pi or an old PC
+Coming soon.
+
+### Cord-cutting with long range attic TV antenna + HDHomeRun network TV tuner
+[Cord-cutting with long range attic TV antenna + HDHomeRun network TV tuner guide](media-server/attic-tv-antenna.md) explains how to cut the cord, stop paying subscription fees to watch live TV, get great local TV reception using a long range TV antenna mounted in the attic, and watch live TV on a tablet or smartphone using a HDHomeRun network TV tuner.
