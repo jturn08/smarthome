@@ -103,8 +103,8 @@ If you are already running Home Assistant OS or Supervised on a device, then you
 2. Launch a Notes window
 3. Launch the Terminal app to open a command line window
 4. Enter `df -h` command to list storage device paths. 
-5. Locate the path to the 2nd USB drive with Home Assistant OS *.xz file
-6. Locate the path to the internal SSD drive in your thin client
+5. Locate the path to the 2nd USB drive with Home Assistant OS *.img.xz file (ex: `/media/xubuntu/...`)
+6. Locate the path to the internal SSD drive in your thin client (ex: `/dev/sda`)
 7. In Terminal, enter `sudo xz -dc /path/to/haos_generic-x86-64.img.xz | sudo dd of=/path/to/internal/ssd bs=4M conv=fsync` command to copy the Home Assistant OS image from your USB drive to the internal SSD in your thin client.
 8. After `xz` copy is completed, shut down Xubuntu and power off the thin client. Unplug both USB drives. You won't need them anymore.
 

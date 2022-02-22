@@ -18,5 +18,8 @@ Coming soon.
 ## Improving Home Assistant privacy by storing passwords in secrets.yaml
 Coming soon.
 
-## Visualizing sensor data history in Grafana
+## Visualizing Home Assistant sensor data history in Grafana
 Coming soon.
+
+## Cord-cutting with long range attic TV antenna + HDHomeRun network TV tuner
+[Cord-cutting with long range attic TV antenna + HDHomeRun network TV tuner guide](attic-tv-antenna.md) explains how to improve TV antenna reception using a long range TV antenna in the attic and enable watching live TV on a tablet or smartphone using a HDHomeRun network TV tuner.
