@@ -24,7 +24,11 @@ Coming soon.
 Coming soon.
 
 ## Media server   
-Build a home network file server so your photos and videos are accessible from any device, mount a TV antenna in the attic to watch free live TV on a tablet or smartphone, ...
+Build a home network file server so your photos and videos are accessible from any device, mount a TV antenna in the attic to 
+watch free live TV on a tablet or smartphone, ...
+
+### Configuring remote acess to a linux PC
+[Configuring remote acess to a linux PC guide](media-server/linux-remote-access.md) explains how to remotely access a Linux PC's terminal shell using SSH and graphical desktop using VNC server software.  
 
 ### Setup home file and media server OpenMediaVault on a Raspberry Pi or an old PC
 Coming soon.
