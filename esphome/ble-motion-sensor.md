@@ -20,6 +20,7 @@ With Qingping motion & ambient light sensor (model CGPR1), you can place the sen
 - [Qingping motion & ambient light sensor (model CGPR1)](https://esphome.io/components/sensor/xiaomi_ble.html#cgpr1)
 - [ESP32](https://en.wikipedia.org/wiki/ESP32) microcontroller
 - PC with Bluetooth for initial sensor pairing
+- Smart Wi-Fi plug, light bulb, or light switch compatible with Home Assistant (ex: Philips Hue, Belkin WeMo, TP-Link Kasa)
 
 **Software required**
 - [Home Assistant](https://www.home-assistant.io/)
