@@ -6,7 +6,7 @@ Build a smarthome with the guides below using [Home Assistant](https://www.home-
 ### Setup Home Assistant on a thin client internal SSD using Linux live session
 [Home Assistant on a thin client](home-assistant/hassio-thin-client-setup.md) explains how to setup and run Home Assistant on low power & low cost ($50 or less) thin client as an alternative to a Raspberry Pi or Home Assistant Blue. The guide explains how to use a Linux live session from a Xubuntu OS USB drive running directly on the thin client to install Home Assistant Operating System.
 
-## Enabling secure HTTPS remote web access to Home Assistant
+### Enabling secure HTTPS remote web access to Home Assistant
 Coming soon.
 
 ### Home Assistant room temperature and humidity with Bluetooth temperature sensor and ESPHome
