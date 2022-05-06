@@ -1,0 +1,48 @@
+blueprint:
+  name: Motion-deactivated entity
+  description: Turn off a light, switch, scene, script or group if no motion is detected for some time.
+  domain: automation
+  source_url: https://github.com/jturn08/smarthome/blob/main/esphome/blueprints/turn-off-entity-if-no-motion.yaml
+  input:
+    motion_entity:
+      name: Motion sensor
+      selector:
+        entity:
+          domain: binary_sensor
+          device_class: motion
+    target_entity:
+      name: Target entity
+      description: The light, switch, scene to turn off (or script to run) when the automation is triggered.
+      selector:
+        entity:
+    idle_time:
+      name: Motion idle time
+      description: Time to leave the light on after the last motion is detected.
+      default: 10
+      selector:
+        number:
+          min: 0.0
+          max: 60.0
+          unit_of_measurement: minutes
+          mode: slider
+          step: 1.0
+mode: queued
+max_exceeded: silent
+trigger:
+- platform: state
+  entity_id: !input 'target_entity'
+  from: 'off'
+  to: 'on'
+  for: !input 'idle_time'
+condition:
+- condition: and
+  conditions:
+  - condition: state
+    entity_id: !input 'motion_entity'
+    state: 'off'
+  - condition: state
+    entity_id: !input 'target_entity'
+    state: 'on'
+action:
+- service: homeassistant.turn_off
+  entity_id: !input 'target_entity'

@@ -1,6 +1,8 @@
 # Configuring remote acess to a linux PC
 This guide illustrates how to remotely access a Linux PC's terminal shell using SSH and graphical desktop using VNC server software.  
 
+**Note:** The following instructions were tested with Xubuntu 21.10, but should also work with most Ubuntu and Debian based Linux distros.  
+
 ## Overview
 Windows 10 Pro and Windows 11 Pro includes Remote Desktop Services (RDP) that enables another computer to remotely view desktop environment. The same functionality is available in Linux using SSH and VNC server. 
 - SSH stands for "Secure Shell". It provides a secure terminal (i.e. command prompt) for running commands on a remote computer. 
@@ -11,8 +13,6 @@ Reasons for remote access to a Linux PC
 - Access a desktop environment on a "headless" PC with no connected monitor
 
 You can connect to the linux PC (i.e. the remote server) from another computer (i.e. the client) running Linux, Windows, or Mac.  
-
-**Note:** The following instructions were tested with Xubuntu 21.10, but should also work with most Ubuntu and Debian based Linux distros.  
 
 ## Enabling remote terminal shell using SSH
 SSH stands for "Secure Shell". It provides a secure terminal (i.e. command prompt) for running commands on a remote computer.  Most Linux-based operating systems include a **SSH client** that can connect to a remote **SSH server**.
@@ -78,7 +78,7 @@ Instructions:
 	startxfce4
    ```
 5. Edit `~/.vnc/xstartup` file permissions to make it executable by running
-   ```
+   ```bash
    chmod +x ~/.vnc/xstartup
    ```
 6. Edit `~/.vnc/config` file to set default options like resolution and color depth by running
@@ -170,4 +170,16 @@ Instructions:
 	  ```
 	- Windows client (PuTTY): In PuTTY configuration Connection, SSH, Tunnels, enter `5901` in Source port, `RemoteServerName:5901` in Destination, and select `Add` button.
     ![PuTTY Tunnels config](images/PuTTY-tunnels.jpg)
-2. Edit `~/.vnc/config` file to improve security by removing `localhost=no` line to only allow remote VNC connections through SSH tunnel.
+2. Edit `~/.vnc/config` file to improve security by editing `localhost` line to only allow remote VNC connections through SSH tunnel.
+   ```
+   nano ~/.vnc/config
+   ```
+   
+   Example `~/.vnc/config` file
+   ```
+   geometry=1920x1080
+   depth=32
+   localhost
+   ```
+
+   *Optional.* Add `SecurityTypes=none` to allow VNC connections without a VNC password.

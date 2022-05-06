@@ -1,5 +1,5 @@
-# Setup Home Assistant on a thin client internal SSD
-This guide illustrates how to use a live session from an Xubuntu USB drive running directly on the thin client to install Home Assistant Operating System on the thin client.  
+# Setup Home Assistant on a thin client internal SSD using Linux live session
+This guide illustrates how to use a Linux live session from an Xubuntu OS USB drive running directly on the thin client to install Home Assistant Operating System.  
 
 ## Overview
 A used thin client PC is a low cost alternative to a Raspberry Pi or a Home Assistant Blue devices for running [Home Assistant](https://www.home-assistant.io/). With a low power x86 64-bit processor and upgradeable RAM and SSD in a small case, it's a good choice option for software that runs 24x7 like Home Assistant. With internal mSATA or M.2 SATA SSD drive, installation requires a few more steps as described below.
@@ -32,7 +32,7 @@ Benefits of running [Home Assistant](https://www.home-assistant.io/) on a used t
 
 As of 2022, a good option is a used HP t620 or Dell Wyse 5060 thin client with an upgraded SATA SSD.
 
-|                   | Dell Wyse 5060 thin client                    | HP t620 thin client                         | Home Assistant Blue                     |
+|                   | Dell Wyse 5060 thin client                    | HP t620 thin client                         | Home Assistant Blue (DROID-N2+)                     |
 | ----------------- | --------------------------------------------- | ------------------------------------------- | --------------------------------------- |
 | Processor         | AMD G-Series GX-424CC (2.40 GHz, Quad core)   | AMD GX-415GA (1.5 GHz, Dual core)           | 6-Core Amlogic S922X Processor (ARM v8) |
 | RAM               | 4 GB / 8 GB DDR3 (upgradeable)                | 2GB / 4 GB DDR3(upgradeable)                | 4 GB DDR4                               |
@@ -105,14 +105,18 @@ If you are already running Home Assistant OS or Supervised on a device, then you
 4. Enter `df -h` command to list storage device paths. 
 5. Locate the path to the 2nd USB drive with Home Assistant OS *.img.xz file (ex: `/media/xubuntu/...`)
 6. Locate the path to the internal SSD drive in your thin client (ex: `/dev/sda`)
-7. In Terminal, enter `sudo xz -dc /path/to/haos_generic-x86-64.img.xz | sudo dd of=/path/to/internal/ssd bs=4M conv=fsync` command to copy the Home Assistant OS image from your USB drive to the internal SSD in your thin client.
+7. In Terminal, enter 
+   ```bash
+   sudo xz -dc /path/to/haos_generic-x86-64.img.xz | sudo dd of=/path/to/internal/ssd bs=4M conv=fsync
+   ```
+   command to copy the Home Assistant OS image from your USB drive to the internal SSD in your thin client.
 8. After `xz` copy is completed, shut down Xubuntu and power off the thin client. Unplug both USB drives. You won't need them anymore.
 
 ### Start up Home Assistant OS on the thin client 
 1. Make sure the wired ethernet cable is plugged in, and power on the thin client. 
 2. Thin client should boot from internal SSD drive and start Home Assistant OS. If not, check boot order in the BIOS settings.
-3. Home Assistant Operating System will install, and after a few moments, you'll be able to reach Home Assistant on http://homeassistant.local:8123. 
+3. Home Assistant Operating System will install, and after a few moments, you'll be able to reach Home Assistant at http://homeassistant.local:8123. 
 
 ## Conclusion
 Congratulations on successfully installing Home Assistant OS on a thin client!  
-You can follow [Onboarding Home Assistant guide](https://www.home-assistant.io/getting-started/onboarding/) to continue setup. If you are migrating from another device, you can restore from a `.tar` backup file and have all your configuration and settings restored in seconds.
+Follow [Onboarding Home Assistant guide](https://www.home-assistant.io/getting-started/onboarding/) to continue setup. If you are migrating from another device, you can restore from a `.tar` backup file saved on a USB drive and restore your configuration & data in seconds.

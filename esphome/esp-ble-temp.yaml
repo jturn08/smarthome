@@ -1,5 +1,5 @@
 esphome:
-  name: esp-ikea
+  name: esp-ble-temp
 
 esp32:
   board: esp32dev

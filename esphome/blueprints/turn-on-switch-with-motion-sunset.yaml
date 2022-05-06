@@ -1,0 +1,78 @@
+blueprint:
+  name: Motion-activated Switch after sundown
+  description: Turn on a switch when motion is detected after sundown
+  domain: automation
+  input:
+    motion_entity:
+      name: Motion Sensor
+      selector:
+        entity:
+          domain: binary_sensor
+          device_class: motion
+    switch_target:
+      name: Switch
+      selector:
+        target:
+          entity:
+            domain: switch
+    sunset_offset:
+      name: Active before sunset
+      description: Offset before sunset to start motion detection
+      default: 60
+      selector:
+        number:
+          min: 0
+          max: 240
+          unit_of_measurement: minutes
+          mode: slider
+          step: 1.0
+    sunrise_offset:
+      name: Active after sunrise
+      description: Offset after sunrise to stop motion detection
+      default: 45
+      selector:
+        number:
+          min: 0
+          max: 240
+          unit_of_measurement: minutes
+          mode: slider
+          step: 1.0
+    no_motion_wait:
+      name: Wait time
+      description: Time to leave the light on after last motion is detected.
+      default: 120
+      selector:
+        number:
+          min: 0.0
+          max: 3600.0
+          unit_of_measurement: seconds
+          mode: slider
+          step: 1.0
+  source_url: https://github.com/jturn08/smarthome/blob/main/esphome/blueprints/turn-on-switch-with-motion-sunset.yaml
+mode: restart
+max_exceeded: silent
+trigger:
+- platform: state
+  entity_id: !input 'motion_entity'
+  from: 'off'
+  to: 'on'
+condition:
+- condition: or
+  conditions:
+    - condition: sun
+      after: sunset
+      after_offset: !input sunset_offset
+    - condition: sun
+      before: sunrise
+      before_offset: !input sunrise_offset
+action:
+- service: switch.turn_on
+  target: !input 'switch_target'
+- wait_for_trigger:
+    platform: state
+    entity_id: !input 'motion_entity'
+    from: 'on'
+    to: 'off'
+- delay: !input 'no_motion_wait'
+- service: switch.turn_off
+  target: !input 'switch_target'

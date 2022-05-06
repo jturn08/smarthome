@@ -1,0 +1,77 @@
+blueprint:
+  name: Motion-activated entity
+  description: Turn on a light, switch, scene, script or group when motion is detected.
+  domain: automation
+  source_url: https://github.com/jturn08/smarthome/blob/main/esphome/blueprints/turn-on-entity-with-motion.yaml
+  input:
+    motion_entity:
+      name: Motion Sensor
+      selector:
+        entity:
+          domain: binary_sensor
+          device_class: motion
+    lightsensor_entity:
+      name: Illuminance Sensor
+      selector:
+        entity:
+          domain: sensor
+          device_class: illuminance
+    illuminace_level:
+      name: Max Illuminance 
+      description: Max immuminance (brightness) level. If illuminance is higher, then the target entity will not be turned on.
+      default: 30
+      selector:
+        number:
+          min: 0.0
+          max: 300.0
+          unit_of_measurement: lux
+          mode: slider
+          step: 1.0
+    target_entity:
+      name: Target entity
+      description: The light, switch, scene to turn on (or script to run) when the automation is triggered.
+      selector:
+        entity:
+    idle_time:
+      name: Motion idle time
+      description: Time to leave the light on after the last motion is detected.
+      default: 2
+      selector:
+        number:
+          min: 0.0
+          max: 60.0
+          unit_of_measurement: minutes
+          mode: slider
+          step: 1.0
+mode: restart
+max_exceeded: silent
+trigger:
+- platform: state
+  entity_id: !input 'motion_entity'
+  from: 'off'
+  to: 'on'
+condition:
+- condition: and
+  conditions:
+  - condition: numeric_state
+    entity_id: !input 'lightsensor_entity'
+    below: !input 'illuminace_level'
+action:
+- service: homeassistant.turn_on
+  entity_id: !input 'target_entity'
+- wait_for_trigger:
+    platform: state
+    entity_id: !input 'motion_entity'
+    from: 'on'
+    to: 'off'
+- delay: !input 'idle_time'
+- condition: and
+  conditions:
+  - condition: state
+    entity_id: !input 'motion_entity'
+    state: 'off'
+  - condition: numeric_state
+    entity_id: !input 'lightsensor_entity'
+    below: !input 'illuminace_level'
+- service: homeassistant.turn_off
+  entity_id: !input 'target_entity'
