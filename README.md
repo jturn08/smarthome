@@ -10,7 +10,8 @@ Build a smarthome with the guides below using [Home Assistant](https://www.home-
 Coming soon.
 
 ### Vacation mode lighting with historical replay
-Coming soon.
+[Vacation mode lighting with historical replay guide](home-assistant/hassio-vacation-mode.md) explains how to create a vacation mode toggle switch in Home Assistant dashboard that turns on and off smart lights when you're away following historical patterns. This way, the smart lights in your home will turn on and off when you are away in the same patterns as when you were home.  
+![Home Assistant vacation mode](home-assistant/images/hassio-vacation-mode.jpg)
 
 ### Home Assistant room temperature and humidity with Bluetooth temperature sensor and ESPHome
 ![Bluetooth LE temperature sensor and ESP32 microcontroller](esphome/images/img9.jpg)
