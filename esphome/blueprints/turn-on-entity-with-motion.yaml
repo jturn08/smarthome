@@ -62,16 +62,7 @@ action:
 - wait_for_trigger:
     platform: state
     entity_id: !input 'motion_entity'
-    from: 'on'
     to: 'off'
-- delay: !input 'idle_time'
-- condition: and
-  conditions:
-  - condition: state
-    entity_id: !input 'motion_entity'
-    state: 'off'
-  - condition: numeric_state
-    entity_id: !input 'lightsensor_entity'
-    below: !input 'illuminace_level'
+    for: !input 'idle_time'
 - service: homeassistant.turn_off
   entity_id: !input 'target_entity'

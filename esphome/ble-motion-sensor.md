@@ -7,11 +7,12 @@ This guide explains how to create automations in [Home Assistant](https://www.ho
 
 ## Overview
 Want to avoid stumbling in the dark looking for the light switch? If you answered yes, then this guide will help you create a smart home that automatically turns on lights in a room at night when people are in the room and automatically turns off lights after people leave. Home Assistant can be configured to change device state (e.g. turn on light) based on status of motion sensor and illuminance (ambient light) sensors.  
-With Qingping motion & ambient light sensor (model CGPR1), you can place the sensor in any room. There's no wiring required becauses it's battery powered and has Bluetooth Low Energy wireless connectivity.
+![Home Assistant logbook with motion data](images/hassio-logbook-motion-detected.jpg)  
+With the Qingping motion & ambient light sensor (model CGPR1), you can place the sensor in any room. There's no wiring needed becauses it's battery powered and has Bluetooth Low Energy wireless connectivity.
 
 **Prerequisites**
 - [Home Assistant](https://www.home-assistant.io/) already installed on Raspberry Pi, single board computer or PC. See [Setup Home Assistant on a thin client](.../home-assistant/hassio-thin-client-setup.md) guide as an example.
-- Smart Wi-Fi plug, light bulb, or light switch compatible with Home Assistant (ex: Philips Hue, Belkin WeMo, TP-Link Kasa)
+- Completed setup and configuration of Home Assistant integration for your smart Wi-Fi plug, light bulb, or light switch.
 - [ESPHome](https://esphome.io) configured as Bluetooth Low Energy device scanner running on a [ESP32](https://en.wikipedia.org/wiki/ESP32) microcontroller. 
 
 *Note:* This guide assumes you've completed the [Home Assistant room temperature and humidity with Bluetooth temperature sensor and ESPHome guide](ble-temperature-sensor.md) which explains how to configure ESPHome to passively monitor Blueooth LE sensors and connect ESPHome with Home Assistant. 
@@ -135,7 +136,8 @@ Use this automation to save electricity and reduce your home's energy footprint 
 4. Enter the automation name (ex: *Auto off stair lights*)  
 5. Select the motion sensor (ex: *M1 Motion detector*) that was defined in your ESPHome configuration .yaml file.  
 6. Select the target light or switch entity to turn off.  
-7. If desired, adjust the motion idle time before lights are turned off.  
+7. If desired, adjust the motion idle time before lights are turned off. Note the sensor reports a max idle time of 30 minutes even if there's been no motion for longer than 30 minutes.  
+![Home Assistant history with idle time data](images/hassio-history-motion-idle-time.jpg)  
 
 ## Conclusion
 Congratulations! Your lights can now automatically turn on at night when people are in the room and automatically turns off lights after people leave.

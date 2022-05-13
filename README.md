@@ -4,9 +4,12 @@
 Build a smarthome with the guides below using [Home Assistant](https://www.home-assistant.io/), [ESPHome](https://esphome.io), and Bluetooth sensors like temperature, motion, air quality.
 
 ### Setup Home Assistant on a thin client internal SSD using Linux live session
-[Home Assistant on a thin client](home-assistant/hassio-thin-client-setup.md) explains how to setup and run Home Assistant on low power & low cost ($50 or less) thin client as an alternative to a Raspberry Pi or Home Assistant Blue. The guide explains how to use a Linux live session from a Xubuntu OS USB drive running directly on the thin client to install Home Assistant Operating System.
+[Home Assistant on a thin client guide](home-assistant/hassio-thin-client-setup.md) explains how to setup and run Home Assistant on low power & low cost ($50 or less) thin client as an alternative to a Raspberry Pi or Home Assistant Blue. The guide explains how to use a Linux live session from a Xubuntu OS USB drive running directly on the thin client to install Home Assistant Operating System.
 
 ### Enabling secure HTTPS remote web access to Home Assistant
+Coming soon.
+
+### Vacation mode lighting with historical replay
 Coming soon.
 
 ### Home Assistant room temperature and humidity with Bluetooth temperature sensor and ESPHome
@@ -19,7 +22,7 @@ Coming soon.
 ### Home Assistant motion detection with Bluetooth motion sensor and ESPHome
 ![Bluetooth LE motion sensor and ESP32 microcontroller](esphome/images/img8.jpg)
 
-[Home Assistant motion detection with Bluetooth motion sensor and ESPHome](esphome/ble-motion-sensor.md) how to create automations in Home Assistant that trigger actions like turning on or off lights based on a Bluetooth motion and ambient light sensor. 
+[Home Assistant motion detection with Bluetooth motion sensor and ESPHome guide](esphome/ble-motion-sensor.md) how to create automations in Home Assistant that trigger actions like turning on or off lights based on a Bluetooth motion and ambient light sensor. 
 
 **Intermediate difficulty level**. This guide assumes you've completed the [Home Assistant room temperature and humidity with Bluetooth temperature sensor and ESPHome guide](ble-temperature-sensor.md) which explains how to configure ESPHome to passively monitor Blueooth LE sensors and connect ESPHome with Home Assistant. 
 

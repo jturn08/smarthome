@@ -34,15 +34,11 @@ trigger:
   from: 'off'
   to: 'on'
   for: !input 'idle_time'
-condition:
-- condition: and
-  conditions:
-  - condition: state
-    entity_id: !input 'motion_entity'
-    state: 'off'
-  - condition: state
-    entity_id: !input 'target_entity'
-    state: 'on'
 action:
+- wait_for_trigger:
+    platform: state
+    entity_id: !input 'motion_entity'
+    to: 'off'
+    for: !input 'idle_time'
 - service: homeassistant.turn_off
   entity_id: !input 'target_entity'
