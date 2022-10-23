@@ -73,13 +73,13 @@ Building this is separated into 3 phases
 This step configures your ESP32 microcontroller to connect to your Wi-Fi network so you can later wirelessly flash configuration updates to it. This is essential as the ESP32 microcontroller's USB port won't be accessible after ESP32 is placed inside the IKEA VINDRIKTNING case.  
 
 1. In Home Assistant, install ESPHome Dasbhoard add-on. Detailed instructions are at
-[ESPHome Getting Started guide](https://esphome.io/guides/getting_started_hassio.html)
-2. Within ESPHome Dashboard, select green "+ New Device" button and enter the device name. The device name is visible in Home Assistant Integrations page, but won't be visible on Home Assistant dashboards.
-3. Select ESP32 device if using ESP32
-4. Cancel install at this time, as you'll need to modify configuration file first.
+[ESPHome Getting Started guide](https://esphome.io/guides/getting_started_hassio.html)  
+2. Within ESPHome Dashboard, select green "+ New Device" button and enter the device name. The device name is visible in Home Assistant Integrations page, but won't be visible on Home Assistant dashboards.  
+3. Select ESP32 device if using a ESP32  
+4. Cancel install at this time, as you'll need to modify configuration file first.  
 5. Select "Edit" button to edit the ESPHome *.yaml configuration file
-6. Edit Wi-Fi network SSID and password. As a security best practice, hide the passwords in `secrets.yaml` file.
-7. Use [my sample ESPHome configuration.yaml](esp-ikea.yaml) as a reference and add the following to the bottom of the .yaml config.  
+6. Edit Wi-Fi network SSID and password. As a security best practice, hide the passwords in `secrets.yaml` file.  
+7. Use [my sample ESPHome configuration.yaml](esp-ikea.yaml) as a reference and add the following to the bottom of the .yaml config.   
   ```yaml
   uart:
     rx_pin: GPIO16 # ESP32 UART RX2 pin
@@ -105,31 +105,33 @@ This step configures your ESP32 microcontroller to connect to your Wi-Fi network
       name: "ESP-IKEA restart"
       id: restart_switch
   ```
-8. Select "Save", then select "Install". Choose your preferred install method. "Manual download" is the easiest method for the initial flashing. "Wireless install" is easiest flash option after ESP32 device is connected to your network
-  - If using "Manual download", then download the compiled program (*.bin file) from ESPHome Dashboard, connect ESP32 device to your PC using USB cable, and then use [ESPHome Flasher](https://github.com/esphome/esphome-flasher) software to flash *.bin program to your ESP32 device.
-9. Verify ESPHome Dashboard displays your ESP32 device as green "Online", which indicates your ESP32 microcontroller successfully connected to your home network. After ESPHome Dashboard displays your ESP32 device as online, you can move on to the next section.
+8. Select "Save", then select "Install". Choose your preferred install method. "Manual download" is the easiest method for the initial flashing. "Wireless install" is easiest flash option after ESP32 device is connected to your network  
+  - If using "Manual download", then download the compiled program (*.bin file) from ESPHome Dashboard, connect ESP32 device to your PC using USB cable, and then use [ESPHome Flasher](https://github.com/esphome/esphome-flasher) software to flash *.bin program to your ESP32 device.  
+9. Verify ESPHome Dashboard displays your ESP32 device as green "Online", which indicates your ESP32 microcontroller successfully connected to your home network. After ESPHome Dashboard displays your ESP32 device as online, you can move on to the next section.  
 
 ## Step 2: IKEA VINDRIKTNING disassembly and wiring the ESP32 microcontroller
-Next step is to open the case of IKEA VINDRIKTNING and wire its sensor and DC power to the ESP32 microcontroller. The ESP32 microcontroller does not need to be powered with separate USB cable, as it draws power from the same USB cable as IKEA VINDRIKTNING.
+Next step is to open the case of IKEA VINDRIKTNING and wire its sensor and DC power to the ESP32 microcontroller. The ESP32 microcontroller does not need to be powered with separate USB cable, as it draws power from the same USB cable as IKEA VINDRIKTNING.  
 
-1. Turn on and warm up your soldering iron :)
-2. From the back of the case, use small philips screwdriver to unscrew the 4 screws and carefully open the back cover. The back cover has wires that attach a circuit board to the particulate sensor inside the case.
-3. Cut 3 wires (prefer 1 red wire for 5V, 1 black wire for ground, and 1 other color wire for data), each about 4.5 inches long. Strip both ends of the wire, about 1/8 inch.
-4. Solder the 3 wires to the ESP32 device, then to the IKEA VINDRIKTNING circuit board test pads using the.
+1. Turn on and warm up your soldering iron :)  
+2. From the back of the case, use small philips screwdriver to unscrew the 4 screws and carefully open the back cover. The back cover has wires that attach a circuit board to the particulate sensor inside the case.  
+3. Cut 3 wires (prefer 1 red wire for 5V, 1 black wire for ground, and 1 other color wire for data), each about 4.5 inches long. Strip both ends of the wire, about 1/8 inch.  
+4. Solder the 3 wires to the ESP32 device, then to the IKEA VINDRIKTNING circuit board test pads using the connections in the table below.  
+
   Wire color  | ESP32 pin| IKEA VINDRIKTNING circuit board pin | Notes
   --|---|---|--
   Red | VCC | +5V | 5V from USB cable
   Black | GND | GND | Ground
-  Yellow | RX2 (GPIO16) | REST | UART serial connection to PM1006 sensor
+  Yellow | RX2 (GPIO16) | REST | UART serial connection to PM1006 sensor  
+
   ![Wiring ESP32 to PM1006 sensor in IKEA VINDRIKTNING](images/img5.jpg)
 
-  ![ESP32 next to opened IKEA VINDRIKTNING](images/img6.jpg)
-4. Test the connections. Connect USB-C cable directly to the port on the IKEA VINDRIKTNING circuit board. Check that the ESP32 device powers on and is detected in the ESPHome dashboard.
-5. Carefully slide the ESP32 underneath the sensor/fan inside the case.
-  ![ESP32 installed below fan inside IKEA VINDRIKTNING (closeup)](images/img3.jpg)
+  ![ESP32 next to opened IKEA VINDRIKTNING](images/img6.jpg)  
+5. Test the connections. Connect USB-C cable directly to the port on the IKEA VINDRIKTNING circuit board. Check that the ESP32 device powers on and is detected in the ESPHome dashboard.  
+6. Carefully slide the ESP32 underneath the sensor/fan inside the case.
+  ![ESP32 installed below fan inside IKEA VINDRIKTNING (closeup)](images/img3.jpg)  
 
-  ![ESP32 installed below fan inside IKEA VINDRIKTNING](images/img7.jpg)
-6. Carefully close the back cover while avoiding pinching the wires. Keep the space above the sensor open to minimize interfing with the sensor airflow that could affect measurement accuracy.
+  ![ESP32 installed below fan inside IKEA VINDRIKTNING](images/img7.jpg)  
+6. Carefully close the back cover while avoiding pinching the wires. Keep the space above the sensor open to minimize interfing with the sensor airflow that could affect measurement accuracy.  
 
 ## Steps 3: Home Assistant integration and automation
 After wiring ESP32 microcontroller to the sensor inside the IKEA VINDRIKTNING, the last step is to enable ESPHome integration so that ESPHome dashboard displays PM2.5 concentration data.  
