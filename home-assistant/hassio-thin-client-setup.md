@@ -35,7 +35,7 @@ As of 2022, a good option is a used HP t620 or Dell Wyse 5060 thin client with a
 |                   | Dell Wyse 5060 thin client                    | HP t620 thin client                         | Home Assistant Blue (DROID-N2+)                     |
 | ----------------- | --------------------------------------------- | ------------------------------------------- | --------------------------------------- |
 | Processor         | AMD G-Series GX-424CC (2.40 GHz, Quad core)   | AMD GX-415GA (1.5 GHz, Dual core)           | 6-Core Amlogic S922X Processor (ARM v8) |
-| RAM               | 4 GB / 8 GB DDR3 (upgradeable)                | 2GB / 4 GB DDR3(upgradeable)                | 4 GB DDR4                               |
+| RAM               | 4 GB / 8 GB DDR3 (upgradeable)                | 2GB / 4 GB DDR3 (upgradeable)                | 4 GB DDR4                               |
 | Storage           | 16 GB / 32 GB / 64 GB SATA SSD  (upgradeable) | 16 GB / 32 GB / 64 GB mSATA or M.2 SATA SSD | 128 GB eMMC                             |
 | Network           | 1x  Gigabit Ethernet                          | 1x  Gigabit Ethernet                        | 1x Gigabit Ethernet                     |
 | Expansion         | 2x USB 3.1 + 4 USB 2.0 + M.2 2230 E key       | 2x USB 3.0 + 6 USB 2.0 + Mini PCIe slot     | 4 USB 3.0                               |
