@@ -34,7 +34,7 @@ On the remote Linux PC you want to connect to, enable SSH server using following
    ```
 4. Connect to the SSH remote server from another computer (i.e. the client).
    - Linux client: Run `ssh username@RemoteServername.local`. (Change `username` and `RemoteServername` to your actual remote server's username and hostname.)
-   - Windows client (PuTTY): 
+   - Windows client (PuTTY):  
      ![PuTTY SSH](images/PuTTY-ssh.jpg)
 
 ## Enabling remote graphical desktop using VNC
@@ -100,9 +100,9 @@ Instructions:
    vncserver
    ```   
 8. Connect to the remote server from a VNC Client on a different computer by connecting to `RemoteServerName:1`. (Change `username` and `RemoteServerName` to your actual remote server's username and hostname.)  
-   - Windows client (TigerVNC viewer):
+   - Windows client (TigerVNC viewer):  
      ![Tiger VNC Viewer](images/TigerVNC-viewer.jpg)
-   - Linux client (Remmina):
+   - Linux client (Remmina):  
      ![Remmina VNC](images/Remmina-VNC.jpg)
 9.  List running VNC servers by running
    ```
@@ -127,7 +127,7 @@ Instructions:
 	  ssh-keygen -a 100 -t ed25519
 	  ```
 	  The public key is saved to `~/.ssh/id_ed25519.pub`. The private key is saved to `~/.ssh/id_ed25519`.  
-	- Windows client (PuTTY): use **PuTTYgen** to generate keys. Select "EdDSA Ed25519 (255 bits)" key type, then select Generate button. Save the public key and save the private key files. Next, in PuTTY client configuration, select the `.ppk` private key file in PuTTY configuration Connection, SSH, Auth, *Private key file for authentication:* setting.
+	- Windows client (PuTTY): use **PuTTYgen** to generate keys. Select "EdDSA Ed25519 (255 bits)" key type, then select Generate button. Save the public key and save the private key files. Next, in PuTTY client configuration, select the `.ppk` private key file in PuTTY configuration Connection, SSH, Auth, *Private key file for authentication:* setting.  
     ![PuTTY SSH Auth config](images/PuTTY-ssh-auth.jpg)
 2. Add the client public key to the remote server's SSH authorized keys list
 	- Linux client (ssh-copy-id): Add the client's public key (`~/.ssh/id_ed25519.pub`) to the remote server's SSH authorized keys list by running. 
@@ -160,16 +160,16 @@ Instructions:
    (Change `username` and `RemoteServerName` to your actual remote server's username and hostname.)  
 
 	- Linux client (Remmmina VNC with SSH Tunnel):  
-	  *Note:* specify server as `localhost:5901`, then configure SSH Tunnel to the actual remote server name.
-	  ![Remmina VNC with SSH tunnel](images/Remmina-VNC-SSH-tunnel.jpg)
-
-	  ![Remmina VNC with SSH tunnel](images/Remmina-VNC-SSH-tunnel-2.jpg)
+	  *Note:* specify server as `localhost:5901`, then configure SSH Tunnel to the actual remote server name.  
+	  ![Remmina VNC with SSH tunnel](images/Remmina-VNC-SSH-tunnel.jpg)  
+  
+	  ![Remmina VNC with SSH tunnel](images/Remmina-VNC-SSH-tunnel-2.jpg)  
     - Linux client: 
  	  ```
 	  ssh -L 5901:localhost:5901 username@RemoteServerName.local
 	  ```
-	- Windows client (PuTTY): In PuTTY configuration Connection, SSH, Tunnels, enter `5901` in Source port, `RemoteServerName:5901` in Destination, and select `Add` button.
-    ![PuTTY Tunnels config](images/PuTTY-tunnels.jpg)
+	- Windows client (PuTTY): In PuTTY configuration Connection, SSH, Tunnels, enter `5901` in Source port, `RemoteServerName:5901` in Destination, and select `Add` button.  
+    ![PuTTY Tunnels config](images/PuTTY-tunnels.jpg)  
 2. Edit `~/.vnc/config` file to improve security by editing `localhost` line to only allow remote VNC connections through SSH tunnel.
    ```
    nano ~/.vnc/config
