@@ -7,7 +7,7 @@ Build a smarthome with the guides below using [Home Assistant](https://www.home-
 [Home Assistant on a thin client guide](home-assistant/hassio-thin-client-setup.md) explains how to setup and run Home Assistant on low power & low cost ($50 or less) thin client as an alternative to a Raspberry Pi or Home Assistant Blue. The guide explains how to use a Linux live session from a Xubuntu OS USB drive running directly on the thin client to install Home Assistant Operating System.
 
 ### Enabling secure HTTPS remote web access to Home Assistant
-Coming soon.
+[Enabling secure HTTPS remote web access to Home Assistant guide](home-assistant/hassio-https-remote-access.md) explains how to set up secure HTTPS remote web access to your Home Assistant installation. This way, you can access Home Assistant dashboard and control your smart home when your away instead of just through your local home network.
 
 ### Vacation mode lighting with historical replay
 [Vacation mode lighting with historical replay guide](home-assistant/hassio-vacation-mode.md) explains how to create a vacation mode toggle switch in Home Assistant dashboard that turns on and off smart lights when you're away following historical patterns. This way, the smart lights in your home will turn on and off when you are away in the same patterns as when you were home.  
@@ -45,6 +45,10 @@ Build a Linux-based home network file server so your photos and videos are acces
 
 ### Configuring remote acess to a linux PC
 [Configuring remote acess to a linux PC guide](media-server/linux-remote-access.md) explains how to remotely access a Linux PC's terminal shell using SSH and graphical desktop using VNC server software.  
+
+### Push notifications from linux server to mobile
+[Enabling push notifications from linux server to mobile with ntfy.sh](media-server/push-notifications-ntfy.md)
+explains how to use free [https://ntfy.sh](https://ntfy.sh) Android or iOS app to get push notifications from Linux media server.  
 
 ### Setup home file and media server OpenMediaVault on a Raspberry Pi or an old PC
 Coming soon.
