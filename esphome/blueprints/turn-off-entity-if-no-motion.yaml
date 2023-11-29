@@ -28,17 +28,17 @@ blueprint:
           step: 1.0
 mode: queued
 max_exceeded: silent
+
 trigger:
 - platform: state
-  entity_id: !input 'target_entity'
-  from: 'off'
-  to: 'on'
+  entity_id: !input 'motion_entity'
+  from: 'on'
+  to: 'off'
   for: !input 'idle_time'
+condition: 
+  - condition: state
+    entity_id: !input 'target_entity'
+    state: 'on'
 action:
-- wait_for_trigger:
-    platform: state
-    entity_id: !input 'motion_entity'
-    to: 'off'
-    for: !input 'idle_time'
 - service: homeassistant.turn_off
   entity_id: !input 'target_entity'

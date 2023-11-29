@@ -55,7 +55,7 @@ SSD drives come in the following types, oldest to newest type
 **SATA** = same connector as 2.5in laptop storage drive, limited to 6 Gbps (750 MB per second) peak transfer rate.  
 **mSATA (mini-SATA)** = laptop internal add-in card size, uses the same SATA interface with the same peak transfer rate.  
 **M.2 (NGFF) SATA** = newer standard for internal add-in module with different lengths (ex: 2242 or 2280), but uses the same SATA interface and the same 6 Gbps peak transfer rate.  
-**M.2 NVMe** = newest standard for internal add-in module with the fastest transfer rates (32 Gbps peak). Uses the same M.2 size internal add-in module with different module lengths (ex: 2242 or 2280) but with different connector than M.2 SATA.  
+**M.2 NVMe** = newest standard for internal add-in module with the fastest transfer rates (32 Gbps peak). Uses the same M.2 size but with different connector than M.2 SATA. Available in different module lengths (ex: 2230, 2242 or 2280).
 
 As of 2023, most older thin clients only support M.2 SATA SSD and not M.2 NVMe SSD. M.2 (NGFF) SATA and M.2 NVMe SSD have similar size and shape, but have different electrical interfaces. A PC mainboard may only support one but not the other, so double check the PC mainboard specifications.   
 
@@ -66,10 +66,11 @@ The official Home Assistant installation instructions are written for flashing t
 
 Installation is separated into the following steps
 1. (Optional) Create a backup of existing Home Assistant installation
-2. Create a bootable Xubuntu USB drive and copy Home Assistant OS image to a USB drive
+2. Create a bootable Xubuntu USB drive
 3. Boot Xubuntu live session on thin client from Xubuntu USB drive
-4. Copy Home Assistant OS image onto the thin client's internal storage drive
-5. Start Home Assistant OS on the thin client 
+4. Download Home Assistant OS image (or use a separate USB drive)
+5. Copy Home Assistant OS image onto the thin client's internal storage drive
+6. Start Home Assistant OS on the thin client 
 
 ### (Optional) Create backup of existing Home Assistant installation if migrating to a different device
 If you are already running Home Assistant OS or Supervised, then you can create a backup first and restore it on your new device and skip running setup a second time.
@@ -79,11 +80,10 @@ If you are already running Home Assistant OS or Supervised, then you can create 
 
 **Note:** Home Assistant Core and Home Assistant Container installation methods do not include built-in backups feature. You will need to go through setup & configuration again on your new device, but you can manually copy/paste `.yaml` configuration files. 
 
-### Create bootable Xubuntu USB drive and copy Home Assistant OS image to USB drive
+### Create bootable Xubuntu USB drive
 1. Download Xubuntu OS image ([free download at xubuntu.org](https://xubuntu.org/download/))
 2. Download balenaEtcher ([free download at balena.io](https://www.balena.io/etcher/))
 3. Create a bootable Xubuntu USB drive by following [Ubuntu tutorial](https://ubuntu.com/tutorials/install-ubuntu-desktop#3-create-a-bootable-usb-stick)
-4. Download [Home Assistant Operating System image for Generic x86-64 (e.g. Intel NUC)](https://www.home-assistant.io/installation/generic-x86-64) and copy the `haos_generic-x86-64.img.xz` file directly to a separate USB drive. DO NOT directly follow the instructions and use balenaEtcher to flash Home Assistant OS image to your USB drive. (Those instructions are written for flashing the Home Assistant OS image directly to the internal SSD drive.)  
 
 *Note:* Home Assistant Operating System is the recommended installation method, but these instructions will also work for other installation methods like Home Assistant Supervised.  
 
@@ -95,25 +95,32 @@ If you are already running Home Assistant OS or Supervised, then you can create 
 5. Thin client now boots from Xubuntu USB drive and you should see Xubuntu logo.
 6.  In the Xubuntu welcome screen, select the "Try Xubuntu" option to start a live session. Complete the setup wizard and you should see Xubuntu desktop.
 
+### Download Home Assistant OS image (or use a separate USB drive)
+Download [Home Assistant Operating System image for Generic x86-64 (e.g. Intel NUC)](https://www.home-assistant.io/installation/generic-x86-64). If connecting your thin client to the Internet is not feasible, then you can download `haos_generic-x86-64.img.xz` file from another computer, save the file to a separate USB drive.
+
+DO NOT directly follow the instructions and use balenaEtcher to flash Home Assistant OS image to your USB drive. (Those instructions are written for flashing the Home Assistant OS image directly to the internal SSD drive.)  
+
 ### Copy Home Assistant OS image onto the thin client's internal SSD drive
 1. Plug in the 2nd USB drive with Home Assistant OS `haos_generic-x86-64.img.xz` file
 2. Launch a Notes window
 3. Launch the Terminal app to open a command line window
-4. Enter `df -h` command to list storage device paths
-5. Locate the path to the 2nd USB drive with Home Assistant OS *.img.xz file (ex: `/media/xubuntu/USB`)
+4. Enter `lsblk` command to list storage device paths
+5. Locate the path to the 2nd USB drive with Home Assistant OS *.img.xz file (ex: `~/Downloads/` or `/media/xubuntu/USB`)
 6. Locate the path to the internal SSD drive in your thin client (ex: `/dev/sda`)
 7. In Terminal, enter 
    ```bash
    sudo xz -dc /path/to/haos_generic-x86-64.img.xz | sudo dd of=/dev/path/to/internal/ssd bs=4M conv=fsync status=progress
    ```
    command to copy the Home Assistant OS image from your USB drive to the internal SSD in your thin client.
-8. After the `xz` copy is completed, shut down Xubuntu and power off the thin client. Unplug both USB drives. You won't need them anymore.
+8. After the `xz` copy is completed, shut down Xubuntu and power off the thin client. Unplug USB drives. You won't need them anymore.
 
 ### Start up Home Assistant OS on the thin client 
 1. Make sure the wired Ethernet cable is plugged in, and power on the thin client. 
 2. Thin client should boot from internal SSD drive and start Home Assistant OS. If not, check the boot order settings in the BIOS.
 3. Home Assistant Operating System will install, and after a few moments, you'll be able to reach Home Assistant at http://homeassistant.local:8123. 
+4. If you are restoring a backup, then choose **Restore Backup** option and upload the `.tar` backup file from your PC to HomeAssistant.
 
 ## Conclusion
 Congratulations on successfully installing Home Assistant OS on a thin client!  
 Follow [Onboarding Home Assistant guide](https://www.home-assistant.io/getting-started/onboarding/) to continue setup. If you are migrating from another device, you can restore from a `.tar` backup file saved on a USB drive and restore your configuration & data in seconds.
+

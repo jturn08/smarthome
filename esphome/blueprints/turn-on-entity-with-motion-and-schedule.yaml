@@ -35,6 +35,20 @@ blueprint:
       selector:
         entity:
 
+    schedule_start:
+      name: Schedule start time
+      description: Automation only runs after this time.
+      default: '07:00:00'
+      selector:
+        time:
+
+    schedule_stop:
+      name: Schedule stop time
+      description: Automation does not run after this time.
+      default: '23:59:00'
+      selector:
+        time:
+
     idle_time:
       name: Motion idle time
       description: Time to leave the light on after the last motion is detected.
@@ -63,6 +77,9 @@ condition:
     entity_id: !input 'lightsensor_entity'
     below: !input 'illuminace_level'
 
+  - condition: time
+    after: !input 'schedule_start'
+    before: !input 'schedule_stop'
 
 action:
 - service: homeassistant.turn_on
@@ -70,7 +87,6 @@ action:
 - wait_for_trigger:
     platform: state
     entity_id: !input 'motion_entity'
-    from: 'on'
     to: 'off'
     for: !input 'idle_time'
 - service: homeassistant.turn_off
