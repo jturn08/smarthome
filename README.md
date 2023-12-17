@@ -43,6 +43,8 @@ Coming soon.
 ## Bitwarden Password Manager
 [Self-host Bitwarden Password Manager in HomeAssistant guide](bitwarden/bitwarden-password-manager.md) explains how to install [Bitwarden](https://bitwarden.com) password manager as a [Home Assistant](https://www.home-assistant.io/) add-on to securely store your passwords while having convenient access from the web browser and mobile apps. Bitwarden supports increased security with Two-Factor Authentication (2FA) with verification code and designated contacts for emergency access. For better security, the password manager server application is not accessible to the internet, and is only accessible from your local home network or through a VPN.  
 
+![Bitwarden](bitwarden/images/Bitwarden_Browser.jpg)
+
 ## Media server  
 Build a self-hosted, Linux-based home network file server so your photos and videos are accessible from any device, mount a TV antenna in the attic to watch free live TV on a tablet or smartphone, ...
 

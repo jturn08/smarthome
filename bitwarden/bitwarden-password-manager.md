@@ -1,7 +1,7 @@
 # Self-host Bitwarden Password Manager in HomeAssistant
 This guide shows how to install a self-hosted [Bitwarden](https://bitwarden.com) password manager as a [Home Assistant](https://www.home-assistant.io/) add-on to securely store your passwords while having convenient access from the web browser and mobile apps. Bitwarden supports increased security with Two-Factor Authentication (2FA) with verification code and designated contacts for emergency access. For better security, the password manager server application is not accessible to the internet, and is only accessible from your local home network or through a VPN.  
 
-![Bitwarden Chrome browser extension](images\Bitwarden_Browser.jpg)
+![Bitwarden Chrome browser extension](images/Bitwarden_Browser.jpg)
 
 ## Overview
 Bitwarden is a open-source, supports multiple user accounts, and supports cross-platform sync with web browser extensions and mobile apps. Bitwarden includes a server application that securely stores passwords in a digital vault, and various web browser extensions and mobile app clients that connect to a Bitwarden server. Bitwarden provides customized reports based on analysis of your saved passwords. 
@@ -89,7 +89,7 @@ Navigate to your  Bitwarden (Vaultwarden) server using HTTPS (ex: https://mydoma
 
 After login, you'll be taken to the Bitwarden **Vault** page.
 
-![Vaultwarden Vault](images\Vaultwarden_Vault.jpg)
+![Vaultwarden Vault](images/Vaultwarden_Vault.jpg)
 
 ### Enable 2FA (Two-Factor Authentication)
 Bitwarden supports two-factor login, and requiring a separate verification code to login enhances protection for unauthorized data access.  
