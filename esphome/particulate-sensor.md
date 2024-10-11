@@ -21,7 +21,7 @@ ESPHome + IKEA VINDRIKTNING device can perform a few functions in a smarthome:
 **Software required**
 - [Home Assistant](https://www.home-assistant.io/)  
 - [ESPHome](https://esphome.io)  
-- [ESPHome Flasher](https://github.com/esphome/esphome-flasher)  
+- [ESPHome Web](https://web.esphome.io)
 
 **Tools required**
 - small philips head screwdriver
@@ -106,7 +106,7 @@ This step configures your ESP32 microcontroller to connect to your Wi-Fi network
       id: restart_switch
   ```
 8. Select "Save", then select "Install". Choose your preferred install method. "Manual download" is the easiest method for the initial flashing. "Wireless install" is easiest flash option after ESP32 device is connected to your network  
-  - If using "Manual download", then download the compiled program (*.bin file) from ESPHome Dashboard, connect ESP32 device to your PC using USB cable, and then use [ESPHome Flasher](https://github.com/esphome/esphome-flasher) software to flash *.bin program to your ESP32 device.  
+  - If using "Manual download", then download the compiled program (*.bin file) from ESPHome Dashboard, connect ESP32 device to your PC using USB cable, and then use [ESPHome Web](https://web.esphome.io) software to flash *.bin program to your ESP32 device.  
 9. Verify ESPHome Dashboard displays your ESP32 device as green "Online", which indicates your ESP32 microcontroller successfully connected to your home network. After ESPHome Dashboard displays your ESP32 device as online, you can move on to the next section.  
 
 ## Step 2: IKEA VINDRIKTNING disassembly and wiring the ESP32 microcontroller

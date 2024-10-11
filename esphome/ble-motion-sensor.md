@@ -27,7 +27,7 @@ With the Qingping motion & ambient light sensor (model CGPR1), you can place the
 - [Home Assistant](https://www.home-assistant.io/)
 - [CGPR1 Utils for Mi thermostat](https://pvvx.github.io/CGPR1/CGPR1_Utils.html)
 - [ESPHome](https://esphome.io)
-- [ESPHome Flasher](https://github.com/esphome/esphome-flasher)
+- [ESPHome Web](https://web.esphome.io)
 
 **Tools required**
 - No special tools needed, nothing to take apart or assemble.

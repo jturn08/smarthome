@@ -22,7 +22,7 @@ If some rooms of your home feels warmer or colder than other rooms, then it migh
 - [Home Assistant](https://www.home-assistant.io/)
 - [Telink flasher for Mi thermostat](https://pvvx.github.io/ATC_MiThermometer/TelinkMiFlasher.html)
 - [ESPHome](https://esphome.io)
-- [ESPHome Flasher](https://github.com/esphome/esphome-flasher)
+- [ESPHome Web](https://web.esphome.io)
 
 **Tools required**
 - No special tools needed, nothing to take apart or assemble.
@@ -85,8 +85,8 @@ Now that your Xiaomi Mijia Bluetooth thermometer is running custom firmware and 
   esp32_ble_tracker:
   ```
 8. Select **Save**, then select **Install**. Choose your preferred install method. **Manual download** is the easiest method for the initial flashing. **Wireless install** is easiest flash option after ESP32 device is connected to your wireless network.
-  - If using **Manual download**, then download the compiled program (`*.bin` file) from ESPHome Dashboard, connect ESP32 device to your PC using USB cable, and then use [ESPHome Flasher](https://github.com/esphome/esphome-flasher) software to flash the `*.bin` program to your ESP32 device.
-9. After ESP32 is flashed successfully with new configuration, view logs to determine the MAC address (ex: `A1:B1:C1:D1:E1:F1`) of your Xiaomi Mijia Bluetooth thermometer. The ESPHome Flasher utility automatically displays logs after flashing, or you can use ESPHome Dashboard and select "Logs" if your ESP32 was successfully connected to your local Wi-Fi network. Logs will show the MAC address and name of the detected Bluetooth Low Energy devices.
+  - If using **Manual download**, then download the compiled program (`*.bin` file) from ESPHome Dashboard, connect ESP32 device to your PC using USB cable, and then use [ESPHome Web](https://web.esphome.io) software to flash the `*.bin` program to your ESP32 device.
+9. After ESP32 is flashed successfully with new configuration, view logs to determine the MAC address (ex: `A1:B1:C1:D1:E1:F1`) of your Xiaomi Mijia Bluetooth thermometer. The ESPHome Web utility automatically displays logs after flashing, or you can use ESPHome Dashboard and select "Logs" if your ESP32 was successfully connected to your local Wi-Fi network. Logs will show the MAC address and name of the detected Bluetooth Low Energy devices.
 ![ESPHome Flasher displays ESP32 logs](images/esphome_ble_scan_log.jpg)
 10. Within the ESPHome Dashboard, select "Edit" button to edit the ESPHome *.yaml configuration. Use [my sample ESPHome configuration.yaml](esp-ble-temp.yaml) as a reference and add the following to the bottom of the .yaml config. Update `mac_address` with the MAC address you determined in the previous step.
 ```yaml
